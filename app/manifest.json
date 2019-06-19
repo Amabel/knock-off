@@ -29,5 +29,9 @@
       "run_at": "document_end",
       "all_frames": false
     }
-  ]
+  ],
+  "permissions": [
+    "management"
+  ],
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'"
 }
