@@ -1,5 +1,6 @@
 browser.runtime.onInstalled.addListener((details) => {
-  console.log('previousVersion', details.previousVersion)
+  details
+  // console.log('previousVersion', details.previousVersion)
 })
 
-console.log(`'Allo 'Allo! Event Page`)
+// console.log(`'Allo 'Allo! Event Page`)

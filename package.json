@@ -4,9 +4,11 @@
   "description": "",
   "scripts": {
     "dev": "webextension-toolbox dev",
-    "build": "webextension-toolbox build"
+    "build": "webextension-toolbox build",
+    "lint": "eslint ./app/scripts/*.js"
   },
   "devDependencies": {
+    "eslint": "^5.16.0",
     "webextension-toolbox": "latest"
   }
 }
