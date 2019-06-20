@@ -1,1 +1,4 @@
-// console.log(`'Allo 'Allo! Content script`)
+init()
+
+function init() {
+}
