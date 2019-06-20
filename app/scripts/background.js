@@ -10,7 +10,6 @@ chrome.management.getSelf((result) => {
 })
 
 function setupGA(trackID) {
-  // eslint-disable-next-line no-use-before-define
   let _gaq = []
   _gaq.push(['_setAccount', trackID])
   _gaq.push(['_trackPageview']);
