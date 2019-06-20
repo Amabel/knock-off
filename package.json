@@ -10,5 +10,8 @@
   "devDependencies": {
     "eslint": "^5.16.0",
     "webextension-toolbox": "latest"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
   }
 }
