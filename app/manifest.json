@@ -24,6 +24,7 @@
         "styles/contentscript.css"
       ],
       "js": [
+        "lib/js/jquery-3.4.1.min.js",
         "scripts/contentscript.js"
       ],
       "run_at": "document_end",
