@@ -1,29 +1,45 @@
-# knock off
+[<img align="right" src="./assets/icon.svg?sanitize=true">](https://github.com/Amabel/knock-off)
 
+# Knock Off
 
+![CircleCI (all branches)](https://img.shields.io/circleci/project/github/Amabel/knock-off.svg)
+![Chrome Web Store](https://img.shields.io/chrome-web-store/v/nieaaebpmiidhgpdfnffjabiioamhccl.svg?color=#50ca26)
+![dependencies](https://img.shields.io/david/Amabel/knock-off.svg)
 
-## Install
+![devDependencies](https://img.shields.io/david/dev/Amabel/knock-off.svg)
+![release date](https://img.shields.io/github/release-date/Amabel/knock-off.svg)
+
+Web extension for improving user experience on [JOBCAN](https://ssl.jobcan.jp/employee)
+
+## Features
+
+* Highlight unfilled rows in man-hour-manage page
+
+* Autofill time (hours) in edit table of man-hour-manage page
+
+## Download
+
+<a href="https://chrome.google.com/webstore/detail/knock-off/nieaaebpmiidhgpdfnffjabiioamhccl"><img src="https://res.cloudinary.com/luoweibinb/image/upload/bo_1px_solid_rgb:d9d9d9,r_10/v1543232977/activity/chrome_web_store.png" width="200px"></a>
+
+## Debug
+
+### Install
 
 	$ npm install
+    $ cp app/scripts/config/env.js.sample app/scripts/config/env.js
 
-## Development
+### Development
 
     npm run dev chrome
     npm run dev firefox
     npm run dev opera
     npm run dev edge
 
-## Build
+### Build
 
     npm run build chrome
     npm run build firefox
     npm run build opera
     npm run build edge
 
-## Environment
-
-The build tool also defines a variable named `process.env.NODE_ENV` in your scripts. 
-
-## Docs
-
-* [webextension-toolbox](https://github.com/HaNdTriX/webextension-toolbox)
+build with [webextension-toolbox](https://github.com/HaNdTriX/webextension-toolbox)
