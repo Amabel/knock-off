@@ -42,4 +42,4 @@ jobs:
 
       - run:
           name: Build
-          command: cp app/scripts/config/env.js.sample app/scripts/config/env.js && npm run build
+          command: cp app/scripts/config/env.js.sample app/scripts/config/env.js && npm run build chrome
