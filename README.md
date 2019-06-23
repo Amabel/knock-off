@@ -42,4 +42,4 @@ Web extension for improving user experience on [JOBCAN](https://ssl.jobcan.jp/em
     npm run build opera
     npm run build edge
 
-build with [webextension-toolbox](https://github.com/HaNdTriX/webextension-toolbox)
+built with [webextension-toolbox](https://github.com/HaNdTriX/webextension-toolbox)
