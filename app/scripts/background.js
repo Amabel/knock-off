@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
-import { TRACK_ID_DEV, TRACK_ID_PROD } from './shared/constants'
+import { UA_TRACKING_ID_PROD, UA_TRACKING_ID_TEST } from './config/env'
 
 // Receive events from content script and push to ga
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
@@ -11,9 +11,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
 chrome.management.getSelf((result) => {
   const trackID = result.installType === 'development'
-    ? TRACK_ID_DEV
-    : TRACK_ID_PROD
-
+    ? UA_TRACKING_ID_TEST
+    : UA_TRACKING_ID_PROD
   setupGA(trackID)
 })
 

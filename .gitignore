@@ -3,3 +3,4 @@ dist/
 packages/
 *.zip
 knock-off/
+app/scripts/config/env.js
