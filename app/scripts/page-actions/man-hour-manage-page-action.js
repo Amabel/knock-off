@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import { hourMinute, minutes } from '../shared/time-util'
 
-export function initManHourManagePageAction() {
+export function launchManHourManagePageAction() {
   const tableRows = $('div#search-result tbody tr').slice(1)
   checkTable(tableRows)
 }
