@@ -1,14 +1,14 @@
 {
   "appName": {
-    "message": "knock off",
+    "message": "Knock Off",
     "description": "The name of the application"
   },
   "appShortName": {
-    "message": "knock off",
+    "message": "Knock Off",
     "description": "The short_name (maximum of 12 characters recommended) is a short version of the app's name."
   },
   "appDescription": {
-    "message": "",
+    "message": "JOBCAN extension",
     "description": "The description of the application"
   }
 }
