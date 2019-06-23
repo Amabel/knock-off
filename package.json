@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "webextension-toolbox dev --devtool=inline-cheap-source-map",
     "build": "webextension-toolbox build",
-    "lint": "eslint ./app/scripts/*.js"
+    "lint": "eslint ./app/scripts/*.js",
+    "zip": "rm -f ./knock-off.zip && cd ./dist/chrome && zip -r knock-off.zip * && mv knock-off.zip ../../knock-off.zip"
   },
   "devDependencies": {
     "eslint": "^5.16.0",
