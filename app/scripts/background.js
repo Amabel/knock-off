@@ -1,8 +1,16 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 import { TRACK_ID_DEV, TRACK_ID_PROD } from './shared/constants'
 
-// Setup GA
+// Receive events from content script and push to ga
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.eventCategory === 'trackPageView') {
+    ga('send', 'pageview', request.eventAction)
+  }
+})
+
 chrome.management.getSelf((result) => {
-  let trackID = result.installType === 'development'
+  const trackID = result.installType === 'development'
     ? TRACK_ID_DEV
     : TRACK_ID_PROD
 
@@ -10,18 +18,22 @@ chrome.management.getSelf((result) => {
 })
 
 function setupGA(trackID) {
-  let _gaq = []
-  _gaq.push(['_setAccount', trackID])
-  _gaq.push(['_trackPageview']);
+  (function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r
+    // noinspection CommaExpressionJS
+    i[r] = i[r] || function() {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date()
+    // noinspection CommaExpressionJS
+    a = s.createElement(o), m = s.getElementsByTagName(o)[0]
+    a.async = 1
+    a.src = g
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script',
+    'https://www.google-analytics.com/analytics.js', 'ga')
 
-  (function() {
-    let ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true
-    ga.src = 'https://ssl.google-analytics.com/ga.js'
-    let s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s)
-  })()
-
-  // Receive events from content script and push to ga
-  chrome.runtime.onMessage.addListener(function(request) {
-    _gaq.push(['_trackEvent', request.eventCategory, request.eventAction])
-  })
+  ga('create', trackID, 'auto')
+  ga('set', 'checkProtocolTask', function() { })
+  ga('set', 'appName', 'Photo Screensaver')
+  ga('send', 'pageview', '/options.html')
 }

@@ -4,6 +4,8 @@ import { launchManHourManagePageAction } from './page-actions/man-hour-manage-pa
 
 const currentPath = window.location.pathname
 
+chrome.runtime.sendMessage({ eventCategory: 'trackPageView', eventAction: currentPath })
+
 if (currentPath === ATTENDANCE_PATH) {
   // attendance path actrion
 } else if (currentPath === MAN_HOUR_MANAGE_PATH) {
