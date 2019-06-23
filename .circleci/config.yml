@@ -39,3 +39,7 @@ jobs:
       - run:
           name: Lint
           command: npm run lint
+
+      -run:
+          name: Build
+          command: cp app/scripts/config/env.js.sample app/scripts/config/env.js && npm run build
