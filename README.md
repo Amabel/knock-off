@@ -19,7 +19,7 @@ Web extension for improving user experience on [JOBCAN](https://ssl.jobcan.jp/em
 
 ## Download
 
-<a href="https://chrome.google.com/webstore/detail/knock-off/nieaaebpmiidhgpdfnffjabiioamhccl"><img src="https://res.cloudinary.com/luoweibinb/image/upload/bo_1px_solid_rgb:d9d9d9,r_10/v1543232977/activity/chrome_web_store.png" width="200px"></a>
+<a href="https://chrome.google.com/webstore/detail/knock-off/nieaaebpmiidhgpdfnffjabiioamhccl"><img src="https://res.cloudinary.com/luoweibinb/image/upload/v1561301816/knock-off/ChromeWebStore_BadgeWBorder_v2_496x150.png"></a>
 
 ## Debug
 
