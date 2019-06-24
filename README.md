@@ -2,12 +2,13 @@
 
 # Knock Off
 
-![CircleCI (all branches)](https://img.shields.io/circleci/project/github/Amabel/knock-off.svg)
-![Chrome Web Store](https://img.shields.io/chrome-web-store/v/nieaaebpmiidhgpdfnffjabiioamhccl.svg?color=#50ca26)
-![dependencies](https://img.shields.io/david/Amabel/knock-off.svg)
+[![CircleCI (all branches)](https://img.shields.io/circleci/project/github/Amabel/knock-off.svg)](https://circleci.com/gh/Amabel/knock-off)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/nieaaebpmiidhgpdfnffjabiioamhccl.svg?color=#50ca26)](https://chrome.google.com/webstore/detail/knock-off/nieaaebpmiidhgpdfnffjabiioamhccl)
+[![dependencies](https://img.shields.io/david/Amabel/knock-off.svg)](https://david-dm.org/amabel/knock-off)
+[![devDependencies](https://img.shields.io/david/dev/Amabel/knock-off.svg)](https://david-dm.org/amabel/knock-off?type=dev)
 
-![devDependencies](https://img.shields.io/david/dev/Amabel/knock-off.svg)
-![release date](https://img.shields.io/github/release-date/Amabel/knock-off.svg)
+[![last commit (master)](https://img.shields.io/github/last-commit/amabel/knock-off/master.svg)](https://github.com/Amabel/knock-off/commits/master)
+[![release date](https://img.shields.io/github/release-date/Amabel/knock-off.svg)](https://github.com/Amabel/knock-off/releases)
 
 Web extension for improving user experience on [JOBCAN](https://ssl.jobcan.jp/employee)
 
