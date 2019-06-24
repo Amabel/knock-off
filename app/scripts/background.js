@@ -4,9 +4,7 @@ import { UA_TRACKING_ID_PROD, UA_TRACKING_ID_TEST } from './config/env'
 
 // Receive events from content script and push to ga
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.eventCategory === 'trackPageView') {
-    ga('send', 'pageview', request.eventAction)
-  }
+  ga('send', request)
 })
 
 chrome.management.getSelf((result) => {

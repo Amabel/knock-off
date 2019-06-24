@@ -53,6 +53,16 @@ function addSelectActionListener(eventInput) {
     const difference = hourMinute(minutes(totalDifference) - registeredManHour)
 
     newlyAddedRow.find('td input[type="text"]').val(difference)[0].dispatchEvent(new Event('change'))
+
+    editForm.find('button#save').click(function() {
+      chrome.runtime.sendMessage({
+        hitType: 'event',
+        eventCategory: 'man-hour-manage',
+        eventAction: 'save',
+        eventLabel: totalDifference,
+        eventValue: minutes(totalDifference)
+      })
+    })
   })
 }
 
