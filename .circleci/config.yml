@@ -45,7 +45,10 @@ jobs:
 
       - run:
           name: Build
-          command: cp app/scripts/config/env.js.sample app/scripts/config/env.js && npm run build chrome
+          command: |
+            echo export const UA_TRACKING_ID_TEST=\'${UA_TRACKING_ID_TEST}\' > app/scripts/config/env.js.sample
+            echo export const UA_TRACKING_ID_PROD=\'${UA_TRACKING_ID_PROD}\' >> app/scripts/config/env.js.sample
+            cp app/scripts/config/env.js.sample app/scripts/config/env.js && npm run build chrome
 
       - run:
           name: Upload & Publish Extension to the Google Chrome Store
