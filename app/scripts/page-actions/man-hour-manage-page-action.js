@@ -30,7 +30,7 @@ function addEditActionListener(tableRow) {
       })
 
       // add action listener to select
-      editForm.find('select.man-hour-input[name="template"]').on('change.knocoff', [editForm, difference], addSelectActionListener)
+      editForm.find('select.man-hour-input[name="template"]').on('change.knockoff', [editForm, difference], addSelectActionListener)
     })
   })
 }
