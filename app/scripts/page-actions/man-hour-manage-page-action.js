@@ -22,11 +22,21 @@ function addEditActionListener(tableRow) {
     getEditForm(month, date).then(editForm => {
       const unMatchTime = editForm.find('div#un-match-time')
 
-      let difference = unMatchTime.text().match(/\d+:\d+/)[0]
+      const matcher = unMatchTime.text().match(/\d+:\d+/)
+      let difference = editForm.find('div#edit-menu-title').text().match(/\d+:\d+/)[0]
+
+      if (matcher) {
+        difference = unMatchTime.text().match(/\d+:\d+/)[0]
+      }
+
       unMatchTime.on('DOMSubtreeModified', () => {
         if (unMatchTime.text()) {
           difference = unMatchTime.text().match(/\d+:\d+/)[0]
+        } else {
+          difference = editForm.find('div#edit-menu-title').text().match(/\d+:\d+/)[0]
         }
+        editForm.find('select.man-hour-input[name="template"]').off('change.knockoff')
+        editForm.find('select.man-hour-input[name="template"]').on('change.knockoff', [editForm, difference], addSelectActionListener)
       })
 
       // add action listener to select
