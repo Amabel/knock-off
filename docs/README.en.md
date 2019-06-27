@@ -1,4 +1,4 @@
-[<img align="right" src="./assets/icon.svg?sanitize=true">](https://github.com/Amabel/knock-off)
+[<img align="right" src="../assets/icon.svg?sanitize=true">](https://github.com/Amabel/knock-off)
 
 # Knock Off
 
@@ -11,25 +11,25 @@
 [![release date](https://img.shields.io/github/release-date/Amabel/knock-off.svg)](https://github.com/Amabel/knock-off/releases)
 
 <p>
-  日本語 (Japanese) •
-  <a href="/docs/README.en.md">English</a>
+  <a href="/README.md">日本語 (Japanese)</a> •
+  English
 </p>
 
 ---
 
-[ジョブカン (JOBCAN)](https://ssl.jobcan.jp/employee) を使いやすくする
+Web extension for improving user experience on [JOBCAN](https://ssl.jobcan.jp/employee)
 
-## 主な機能
+## Features
 
-* 工数が未入力の箇所をハイライトする
+* Highlight unfilled rows in man-hour-manage page
 
-* 工数を自動入力する
+* Autofill time (hours) in edit table of man-hour-manage page
 
-## ダウンロード
+## Download
 
 <a href="https://chrome.google.com/webstore/detail/knock-off/nieaaebpmiidhgpdfnffjabiioamhccl"><img src="https://res.cloudinary.com/luoweibinb/image/upload/v1561301816/knock-off/ChromeWebStore_BadgeWBorder_v2_496x150.png"></a>
 
-## デバッグ
+## Debug
 
 ### Install
 
