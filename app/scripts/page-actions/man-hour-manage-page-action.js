@@ -22,16 +22,49 @@ function addEditActionListener(tableRow) {
     getEditForm(month, date).then(editForm => {
       const unMatchTime = editForm.find('div#un-match-time')
 
-      let difference = unMatchTime.text().match(/\d+:\d+/)[0]
+      const matcher = unMatchTime.text().match(/\d+:\d+/)
+      let difference = editForm.find('div#edit-menu-title').text().match(/\d+:\d+/)[0]
+
+      if (matcher) {
+        difference = unMatchTime.text().match(/\d+:\d+/)[0]
+      }
+
       unMatchTime.on('DOMSubtreeModified', () => {
         if (unMatchTime.text()) {
           difference = unMatchTime.text().match(/\d+:\d+/)[0]
+        } else {
+          difference = editForm.find('div#edit-menu-title').text().match(/\d+:\d+/)[0]
         }
+        editForm.find('select.man-hour-input[name="template"]').off('change.knockoff')
+        editForm.find('select.man-hour-input[name="template"]').on('change.knockoff', [editForm, difference], addSelectActionListener)
       })
 
       // add action listener to select
-      editForm.find('select.man-hour-input[name="template"]').on('change.knocoff', [editForm, difference], addSelectActionListener)
+      editForm.find('select.man-hour-input[name="template"]').on('change.knockoff', [editForm, difference], addSelectActionListener)
+
+      // add action listener to add button
+      editForm.find('tr td:nth-child(5) div.btn.btn-default').click([editForm, difference], addAddButtonActionListener)
+
+      // add action listener to save button
+      editForm.find('button#save').click(function() {
+        chrome.runtime.sendMessage({
+          hitType: 'event',
+          eventCategory: 'man-hour-manage',
+          eventAction: 'save',
+          eventLabel: difference,
+          eventValue: minutes(difference)
+        })
+      })
     })
+  })
+}
+
+function addAddButtonActionListener(eventInput) {
+  const [editForm, totalDifference] = eventInput.data
+  computeManHourAndChangeInputValue(editForm, totalDifference)
+
+  getNewlyAddedRow(editForm).then((newlyAddedRow) => {
+    newlyAddedRow.find('select.man-hour-input[name="projects[]"').val('1')[0].dispatchEvent(new Event('change'))
   })
 }
 
@@ -42,6 +75,10 @@ function addSelectActionListener(eventInput) {
     $(this).remove()
   })
 
+  computeManHourAndChangeInputValue(editForm, totalDifference)
+}
+
+function computeManHourAndChangeInputValue(editForm, totalDifference) {
   getNewlyAddedRow(editForm).then((newlyAddedRow) => {
     const rows = editForm.find($('table tr.daily td:nth-child(4) input[type="hidden"]')).slice(0, -1)
     let registeredManHour = 0
@@ -53,16 +90,6 @@ function addSelectActionListener(eventInput) {
     const difference = hourMinute(minutes(totalDifference) - registeredManHour)
 
     newlyAddedRow.find('td input[type="text"]').val(difference)[0].dispatchEvent(new Event('change'))
-
-    editForm.find('button#save').click(function() {
-      chrome.runtime.sendMessage({
-        hitType: 'event',
-        eventCategory: 'man-hour-manage',
-        eventAction: 'save',
-        eventLabel: totalDifference,
-        eventValue: minutes(totalDifference)
-      })
-    })
   })
 }
 
