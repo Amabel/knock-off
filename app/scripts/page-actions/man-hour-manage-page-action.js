@@ -3,7 +3,23 @@ import { hourMinute, minutes } from '../shared/time-util'
 
 export function launchManHourManagePageAction() {
   const tableRows = $('div#search-result tbody tr').slice(1)
+
+  setupTimeTravel()
+
   checkTable(tableRows)
+}
+
+function setupTimeTravel() {
+  // set if needed
+  const dateSelectTable = $('div.contents-wrap-middle table td#search-term form#search')
+  const yearSelect = dateSelectTable.find('select[name="year"]')
+  const monthSelect = dateSelectTable.find('select[name="month"]')
+
+  if (monthSelect.val() === '7') {
+    monthSelect.val(6)[0].dispatchEvent(new Event('change'))
+    console.log(monthSelect.val())
+  }
+
 }
 
 function checkTable(tableRows) {
