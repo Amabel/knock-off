@@ -1,10 +1,10 @@
-export function formatTimeTravelDiv() {
+export function formatTimeTravelDiv(inputId) {
   const iconUrl = chrome.runtime.getURL('images/question.svg')
   return `
-    <span id="timeTravel" class="time-travel-wrapper">
-      <input id="timeTravelInput" type="checkbox">
-      <label for="timeTravelInput">Time travel を有効にする</label>
-      <span id="timeTravelTip">
+    <span class="time-travel-wrapper">
+      <input id=${inputId} class="timeTravelInput" type="checkbox">
+      <label for="${inputId}">Time travel を有効にする</label>
+      <span class="timeTravelTip">
         <img src="${iconUrl}" alt="tips">
       </span>
     </span>

@@ -25,9 +25,13 @@ function setupTimeTravel() {
 }
 
 function addActivateTimeTravelCheckbox(timeTravelChecked) {
-  $('div.contents-wrap-middle>table').css('display', 'inline-block').after(formatTimeTravelDiv())
+  $('div.contents-wrap-middle>table').css('display', 'inline-block').after(formatTimeTravelDiv('manHourPageTimeTravel'))
   addTimeTravelTips('timeTravelTip')
-  const timeTravelCheckbox = $('#timeTravel input[type="checkbox"]')
+  addChangeListenerToTimeTravelCheckbox(timeTravelChecked)
+}
+
+function addChangeListenerToTimeTravelCheckbox(timeTravelChecked) {
+  const timeTravelCheckbox = $('.time-travel-wrapper input[type="checkbox"]')
   timeTravelCheckbox.prop('checked', timeTravelChecked)
   timeTravelCheckbox.change(function() {
     const checked = this.checked
@@ -61,6 +65,8 @@ function addEditActionListener(tableRow) {
     const [month, date] = matches
 
     getEditForm(month, date).then(editForm => {
+      addTimeTravelCheckboxToEditForm(editForm)
+
       const unMatchTime = editForm.find('div#un-match-time')
 
       const matcher = unMatchTime.text().match(/\d+:\d+/)
@@ -97,6 +103,21 @@ function addEditActionListener(tableRow) {
         })
       })
     })
+  })
+}
+
+function addTimeTravelCheckboxToEditForm(editForm) {
+  const timeTravelDiv = `
+    <div class="time-travel-container">
+      ${formatTimeTravelDiv('editFormTimeTravel')}
+    </div>
+  `
+  editForm.find('#edit-menu-contents').append(timeTravelDiv)
+  addTimeTravelTips('timeTravelTip')
+
+  chrome.storage.sync.get([TIME_TRAVEL_FLAG_KEY], function(result) {
+    const timeTravelChecked = result[TIME_TRAVEL_FLAG_KEY]
+    addChangeListenerToTimeTravelCheckbox(timeTravelChecked)
   })
 }
 
