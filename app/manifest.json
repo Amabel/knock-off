@@ -19,6 +19,7 @@
         "https://ssl.jobcan.jp/employee/*"
       ],
       "css": [
+        "lib/styles/tippy.js/light-border.css",
         "styles/contentscript.css"
       ],
       "js": [
@@ -31,6 +32,9 @@
   "permissions": [
     "management",
     "storage"
+  ],
+  "web_accessible_resources": [
+    "images/*.svg"
   ],
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
 }
