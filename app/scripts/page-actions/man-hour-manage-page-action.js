@@ -46,8 +46,16 @@ function travelToLastMonthOnPageReload() {
   const yearSelect = dateSelectTable.find('select[name="year"]')
   const monthSelect = dateSelectTable.find('select[name="month"]')
 
-  if (monthSelect.val() === '7') {
-    monthSelect.val(6)[0].dispatchEvent(new Event('change'))
+  const lastDayOfTheLastMonth = new Date(new Date().setDate(0))
+  const targetYear = lastDayOfTheLastMonth.getFullYear()
+  const targetMonth = lastDayOfTheLastMonth.getMonth() + 1
+
+  if (yearSelect.val() !== targetYear.toString()) {
+    yearSelect.val(targetYear)[0].dispatchEvent(new Event('change'))
+  }
+
+  if (monthSelect.val() !== targetMonth.toString()) {
+    monthSelect.val(targetMonth)[0].dispatchEvent(new Event('change'))
   }
 }
 
