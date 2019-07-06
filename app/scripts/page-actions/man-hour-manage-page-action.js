@@ -1,7 +1,7 @@
 import $ from 'jquery'
 import { hourMinute, minutes } from '../shared/time-util'
 import { TIME_TRAVEL_FLAG_KEY } from '../shared/constants'
-import { getTimeTravelDiv } from './format-dom'
+import { formatTimeTravelDiv } from './format-dom'
 import { setupTippy, addTimeTravelTips } from './tips'
 
 export function launchManHourManagePageAction() {
@@ -25,7 +25,7 @@ function setupTimeTravel() {
 }
 
 function addActivateTimeTravelCheckbox(timeTravelChecked) {
-  $('div.contents-wrap-middle>table').css('display', 'inline-block').after(getTimeTravelDiv())
+  $('div.contents-wrap-middle>table').css('display', 'inline-block').after(formatTimeTravelDiv())
   addTimeTravelTips('timeTravelTip')
   const timeTravelCheckbox = $('#timeTravel input[type="checkbox"]')
   timeTravelCheckbox.prop('checked', timeTravelChecked)

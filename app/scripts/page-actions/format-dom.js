@@ -1,4 +1,4 @@
-export function getTimeTravelDiv() {
+export function formatTimeTravelDiv() {
   const iconUrl = chrome.runtime.getURL('images/question.svg')
   return `
     <span id="timeTravel" class="time-travel-wrapper">
