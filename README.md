@@ -17,7 +17,7 @@
 
 ---
 
-[ジョブカン (JOBCAN)](https://ssl.jobcan.jp/employee) を使いやすくする
+[ジョブカン (JOBCAN)](https://ssl.jobcan.jp/employee) が使いやすくなる
 
 ## 主な機能
 
