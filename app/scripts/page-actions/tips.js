@@ -5,7 +5,7 @@ export function setupTippy() {
     arrow: true,
     arrowType: 'round',
     duration: 300,
-    theme: 'light-border',
+    theme: 'dark',
     delay: 0,
     animation: 'fade'
   })
@@ -13,7 +13,7 @@ export function setupTippy() {
 
 export function addTimeTravelTips(divClass) {
   tippy(`.${divClass}`, {
-    content: '工数を入力した後、自動的に先月の工数管理に戻ります',
+    content: '常に先月の工数管理を表示する（ページをリロードする必要があります）',
     maxWidth: '380px',
   })
 }

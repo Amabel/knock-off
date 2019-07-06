@@ -26,7 +26,7 @@ function setupTimeTravel() {
 
 function addActivateTimeTravelCheckbox(timeTravelChecked) {
   $('div.contents-wrap-middle>table').css('display', 'inline-block').after(formatTimeTravelDiv('manHourPageTimeTravel'))
-  addTimeTravelTips('timeTravelTip')
+  addTimeTravelTips('time-travel-tip')
   addChangeListenerToTimeTravelCheckbox(timeTravelChecked)
 }
 
@@ -121,7 +121,7 @@ function addTimeTravelCheckboxToEditForm(editForm) {
     </div>
   `
   editForm.find('#edit-menu-contents').append(timeTravelDiv)
-  addTimeTravelTips('timeTravelTip')
+  addTimeTravelTips('time-travel-tip')
 
   chrome.storage.sync.get([TIME_TRAVEL_FLAG_KEY], function(result) {
     const timeTravelChecked = result[TIME_TRAVEL_FLAG_KEY]
