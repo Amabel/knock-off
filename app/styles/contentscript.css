@@ -1,0 +1,15 @@
+.time-travel-wrapper {
+  float: right;
+  width: calc(100% - 368px);
+}
+
+.time-travel-wrapper label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.time-travel-wrapper input {
+  margin-right: 8px;
+  height: 32px;
+}

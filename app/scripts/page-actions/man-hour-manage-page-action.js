@@ -1,25 +1,46 @@
 import $ from 'jquery'
 import { hourMinute, minutes } from '../shared/time-util'
+import { TIME_TRAVEL_FLAG_KEY } from '../shared/constants'
+import { getTimeTravelDiv } from './format-dom'
 
 export function launchManHourManagePageAction() {
-  const tableRows = $('div#search-result tbody tr').slice(1)
-
   setupTimeTravel()
 
+  const tableRows = $('div#search-result tbody tr').slice(1)
   checkTable(tableRows)
 }
 
 function setupTimeTravel() {
-  // set if needed
+  chrome.storage.sync.get([TIME_TRAVEL_FLAG_KEY], function(result) {
+    const timeTravelChecked = result[TIME_TRAVEL_FLAG_KEY]
+    addActivateTimeTravelCheckbox(timeTravelChecked)
+
+    if (timeTravelChecked) {
+      travelToLastMonthOnPageReload()
+    }
+  })
+}
+
+function addActivateTimeTravelCheckbox(timeTravelChecked) {
+  $('div.contents-wrap-middle>table').css('display', 'inline-block').after(getTimeTravelDiv())
+  const timeTravelCheckbox = $('#timeTravel input[type="checkbox"]')
+  timeTravelCheckbox.prop('checked', timeTravelChecked)
+  timeTravelCheckbox.change(function() {
+    const checked = this.checked
+    chrome.storage.sync.set({[TIME_TRAVEL_FLAG_KEY]: checked}, function() {
+      // TODO: inform user that the settings have been changed
+    })
+  })
+}
+
+function travelToLastMonthOnPageReload() {
   const dateSelectTable = $('div.contents-wrap-middle table td#search-term form#search')
   const yearSelect = dateSelectTable.find('select[name="year"]')
   const monthSelect = dateSelectTable.find('select[name="month"]')
 
   if (monthSelect.val() === '7') {
     monthSelect.val(6)[0].dispatchEvent(new Event('change'))
-    console.log(monthSelect.val())
   }
-
 }
 
 function checkTable(tableRows) {
