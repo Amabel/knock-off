@@ -9,6 +9,7 @@
 
 [![last commit (master)](https://img.shields.io/github/last-commit/amabel/knock-off/master.svg)](https://github.com/Amabel/knock-off/commits/master)
 [![release date](https://img.shields.io/github/release-date/Amabel/knock-off.svg)](https://github.com/Amabel/knock-off/releases)
+[![license](https://img.shields.io/github/license/amabel/knock-off.svg)](https://github.com/Amabel/knock-off/blob/master/LICENSE)
 
 <p>
   日本語 (Japanese) •
