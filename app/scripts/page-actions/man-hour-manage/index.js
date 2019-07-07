@@ -1,7 +1,13 @@
 import $ from 'jquery'
-import { hourMinute, minutes } from '../shared/time-util'
+import { hourMinute, minutes } from '../../shared/time-util'
+import { setupTimeTravel, addTimeTravelCheckboxToEditForm } from './time-travel'
+import { setupTippy } from '../tips'
 
 export function launchManHourManagePageAction() {
+  setupTippy()
+
+  setupTimeTravel()
+
   const tableRows = $('div#search-result tbody tr').slice(1)
   checkTable(tableRows)
 }
@@ -20,6 +26,8 @@ function addEditActionListener(tableRow) {
     const [month, date] = matches
 
     getEditForm(month, date).then(editForm => {
+      addTimeTravelCheckboxToEditForm(editForm)
+
       const unMatchTime = editForm.find('div#un-match-time')
 
       const matcher = unMatchTime.text().match(/\d+:\d+/)

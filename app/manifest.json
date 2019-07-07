@@ -1,7 +1,7 @@
 {
   "name": "__MSG_appName__",
   "description": "__MSG_appDescription__",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "manifest_version": 2,
   "default_locale": "en",
   "icons": {
@@ -19,7 +19,9 @@
         "https://ssl.jobcan.jp/employee/*"
       ],
       "css": [
-        "styles/contentscript.css"
+        "lib/styles/tippy.js/light-border.css",
+        "styles/contentscript.css",
+        "styles/man-hour-manage/time-travel.css"
       ],
       "js": [
         "scripts/contentscript.js"
@@ -29,7 +31,11 @@
     }
   ],
   "permissions": [
-    "management"
+    "management",
+    "storage"
+  ],
+  "web_accessible_resources": [
+    "images/*.svg"
   ],
   "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'"
 }
