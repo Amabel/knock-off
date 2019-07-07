@@ -20,7 +20,8 @@
       ],
       "css": [
         "lib/styles/tippy.js/light-border.css",
-        "styles/contentscript.css"
+        "styles/contentscript.css",
+        "styles/man-hour-manage/time-travel.css"
       ],
       "js": [
         "scripts/contentscript.js"
