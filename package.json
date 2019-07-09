@@ -9,7 +9,7 @@
     "zip": "rm -f ./knock-off.zip && cd ./dist/chrome && zip -r knock-off.zip * && mv knock-off.zip ../../knock-off.zip"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^6.0.1",
     "webextension-toolbox": "latest"
   },
   "dependencies": {
