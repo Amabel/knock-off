@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.2.1] - 2019-08-28
+
+- Security improvement
+
 ## [v0.2.0] - 2019-07-07
 
 ### Added
