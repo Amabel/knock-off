@@ -1,5 +1,4 @@
-
-import { ATTENDANCE_PATH, MAN_HOUR_MANAGE_PATH  } from './shared/constants'
+import { ATTENDANCE_PATH, MAN_HOUR_MANAGE_PATH } from './shared/constants'
 import { launchManHourManagePageAction } from './page-actions/man-hour-manage'
 
 const currentPath = window.location.pathname

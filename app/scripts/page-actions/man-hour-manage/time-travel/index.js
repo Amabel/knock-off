@@ -34,7 +34,7 @@ function addChangeListenerToTimeTravelCheckbox(timeTravelChecked) {
   timeTravelCheckbox.prop('checked', timeTravelChecked)
   timeTravelCheckbox.change(function() {
     const checked = this.checked
-    chrome.storage.sync.set({[TIME_TRAVEL_FLAG_KEY]: checked}, function() {
+    chrome.storage.sync.set({ [TIME_TRAVEL_FLAG_KEY]: checked }, function() {
       // TODO: inform user that the settings have been changed
       $('#manHourPageTimeTravel').prop('checked', checked)
     })
@@ -42,7 +42,9 @@ function addChangeListenerToTimeTravelCheckbox(timeTravelChecked) {
 }
 
 function addActivateTimeTravelCheckbox(timeTravelChecked) {
-  $('div.contents-wrap-middle>table').css('display', 'inline-block').after(formatTimeTravelDiv('manHourPageTimeTravel'))
+  $('div.contents-wrap-middle>table')
+    .css('display', 'inline-block')
+    .after(formatTimeTravelDiv('manHourPageTimeTravel'))
   addTimeTravelTips('time-travel-tip')
   addChangeListenerToTimeTravelCheckbox(timeTravelChecked)
 }
