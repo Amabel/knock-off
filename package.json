@@ -5,11 +5,31 @@
   "scripts": {
     "dev": "webextension-toolbox dev --devtool=inline-cheap-source-map",
     "build": "webextension-toolbox build",
-    "lint": "eslint ./app/scripts/*.js",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint ./app/scripts/*.js",
+    "lint:style": "prettier ./app/scripts/**/*.js && prettier ./app/styles/**/*.css",
     "zip": "rm -f ./knock-off.zip && cd ./dist/chrome && zip -r knock-off.zip * && mv knock-off.zip ../../knock-off.zip"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./app/scripts/**/*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "./app/styles/**/*.css": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^6.2.2",
+    "husky": "^3.0.4",
+    "lint-staged": "^9.2.5",
     "webextension-toolbox": "latest"
   },
   "dependencies": {
