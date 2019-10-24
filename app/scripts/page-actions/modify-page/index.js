@@ -11,7 +11,7 @@ export function launchModifyPageAction() {
 
 function updateEstimateRestTime() {
   const lastAction = getLastAction()
-  if (lastAction) {
+  if (lastAction === '退室') {
     const lastLeaveTime = getLastLeaveTime()
 
     if (lastLeaveTime) {
