@@ -39,6 +39,16 @@ export function addUpTime(t1, t2) {
   return `${pad2Num(d1.getHours())}:${pad2Num(d1.getMinutes())}:${pad2Num(d1.getSeconds())}`
 }
 
+// NOTE: returns current date with the format like: 'YYYYMMDD'
+export function getSimpleDate() {
+  const date = new Date()
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+
+  return year + pad2Num(month) + pad2Num(day)
+}
+
 function pad2Num(num) {
   return `0${num}`.slice(-2)
 }

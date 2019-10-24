@@ -1,10 +1,12 @@
 import $ from 'jquery'
-import { timeDiff, addUpTime } from '../../shared/time-util'
+import { timeDiff, addUpTime, getSimpleDate } from '../../shared/time-util'
 
 export function launchModifyPageAction() {
-  setInterval(() => {
-    updateEstimateRestTime()
-  }, 1000)
+  if (currentDate()) {
+    setInterval(() => {
+      updateEstimateRestTime()
+    }, 1000)
+  }
 }
 
 function updateEstimateRestTime() {
@@ -55,4 +57,11 @@ function getLastAction() {
 
 function addRestTimeToHtml(totalRestTime) {
   $('#time-table tr:eq(1) th').html(`休憩時間 <span style="float: right">(仮: ${totalRestTime})<span>`)
+}
+
+function currentDate() {
+  const queryDate = $('#search-box select option:selected').text()
+  const today = getSimpleDate()
+
+  return today === queryDate
 }
