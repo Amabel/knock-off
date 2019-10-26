@@ -36,7 +36,7 @@ function getCurrentRestTime() {
 }
 
 function getLastLeaveTime() {
-  const leaveTimeCell = $('#logs-table tr:contains(\'退室\')')
+  const leaveTimeCell = $('#logs-table tr:contains(\'退室\'):last')
     .find('td')
     .eq(1)
     .get(0)
