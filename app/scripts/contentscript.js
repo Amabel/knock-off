@@ -6,13 +6,8 @@ const currentPath = window.location.pathname
 
 chrome.runtime.sendMessage({ hitType: 'pageview', page: currentPath })
 
-switch (currentPath) {
-  case MAN_HOUR_MANAGE_PATH:
-    launchManHourManagePageAction()
-    break
-  case MODIFY_PAGE_PATH:
-    launchModifyPageAction()
-    break
-  default:
-    break
+if (currentPath === MAN_HOUR_MANAGE_PATH) {
+  launchManHourManagePageAction()
+} else if (currentPath.startsWith(MODIFY_PAGE_PATH)) {
+  launchModifyPageAction()
 }
