@@ -31,7 +31,10 @@ function addEditActionListener(tableRow) {
       const unMatchTime = editForm.find('div#un-match-time')
 
       const matcher = unMatchTime.text().match(/\d+:\d+/)
-      let difference = editForm.find('div#edit-menu-title').text().match(/\d+:\d+/)[0]
+      let difference = editForm
+        .find('div#edit-menu-title')
+        .text()
+        .match(/\d+:\d+/)[0]
 
       if (matcher) {
         difference = unMatchTime.text().match(/\d+:\d+/)[0]
@@ -41,14 +44,21 @@ function addEditActionListener(tableRow) {
         if (unMatchTime.text()) {
           difference = unMatchTime.text().match(/\d+:\d+/)[0]
         } else {
-          difference = editForm.find('div#edit-menu-title').text().match(/\d+:\d+/)[0]
+          difference = editForm
+            .find('div#edit-menu-title')
+            .text()
+            .match(/\d+:\d+/)[0]
         }
         editForm.find('select.man-hour-input[name="template"]').off('change.knockoff')
-        editForm.find('select.man-hour-input[name="template"]').on('change.knockoff', [editForm, difference], addSelectActionListener)
+        editForm
+          .find('select.man-hour-input[name="template"]')
+          .on('change.knockoff', [editForm, difference], addSelectActionListener)
       })
 
       // add action listener to select
-      editForm.find('select.man-hour-input[name="template"]').on('change.knockoff', [editForm, difference], addSelectActionListener)
+      editForm
+        .find('select.man-hour-input[name="template"]')
+        .on('change.knockoff', [editForm, difference], addSelectActionListener)
 
       // add action listener to add button
       editForm.find('tr td:nth-child(5) div.btn.btn-default').click([editForm, difference], addAddButtonActionListener)
@@ -60,7 +70,7 @@ function addEditActionListener(tableRow) {
           eventCategory: 'man-hour-manage',
           eventAction: 'save',
           eventLabel: difference,
-          eventValue: minutes(difference)
+          eventValue: minutes(difference),
         })
       })
     })
@@ -71,8 +81,11 @@ function addAddButtonActionListener(eventInput) {
   const [editForm, totalDifference] = eventInput.data
   computeManHourAndChangeInputValue(editForm, totalDifference)
 
-  getNewlyAddedRow(editForm).then((newlyAddedRow) => {
-    newlyAddedRow.find('select.man-hour-input[name="projects[]"').val('1')[0].dispatchEvent(new Event('change'))
+  getNewlyAddedRow(editForm).then(newlyAddedRow => {
+    newlyAddedRow
+      .find('select.man-hour-input[name="projects[]"')
+      .val('1')[0]
+      .dispatchEvent(new Event('change'))
   })
 }
 
@@ -87,7 +100,7 @@ function addSelectActionListener(eventInput) {
 }
 
 function computeManHourAndChangeInputValue(editForm, totalDifference) {
-  getNewlyAddedRow(editForm).then((newlyAddedRow) => {
+  getNewlyAddedRow(editForm).then(newlyAddedRow => {
     const rows = editForm.find($('table tr.daily td:nth-child(4) input[type="hidden"]')).slice(0, -1)
     let registeredManHour = 0
 
@@ -97,7 +110,10 @@ function computeManHourAndChangeInputValue(editForm, totalDifference) {
 
     const difference = hourMinute(minutes(totalDifference) - registeredManHour)
 
-    newlyAddedRow.find('td input[type="text"]').val(difference)[0].dispatchEvent(new Event('change'))
+    newlyAddedRow
+      .find('td input[type="text"]')
+      .val(difference)[0]
+      .dispatchEvent(new Event('change'))
   })
 }
 
@@ -120,7 +136,10 @@ function getEditForm(month, date) {
       const editForm = $('form#save-form')
 
       if (editForm.length !== 0) {
-        const [, selectedMonth, selectedDate] = editForm.find('div#edit-menu-title').text().match(/\d+/g)
+        const [, selectedMonth, selectedDate] = editForm
+          .find('div#edit-menu-title')
+          .text()
+          .match(/\d+/g)
         if (selectedMonth === month && selectedDate === date) {
           clearInterval(getEditFormInterval)
           resolve(editForm)
@@ -131,8 +150,18 @@ function getEditForm(month, date) {
 }
 
 function restyleTableRow(tableRow) {
-  const workingHours = minutes(tableRow.find('td:nth-child(2)').text().trim())
-  const manHours = minutes(tableRow.find('td:nth-child(3)').text().trim())
+  const workingHours = minutes(
+    tableRow
+      .find('td:nth-child(2)')
+      .text()
+      .trim()
+  )
+  const manHours = minutes(
+    tableRow
+      .find('td:nth-child(3)')
+      .text()
+      .trim()
+  )
   if (workingHours !== 0 && workingHours !== manHours) {
     tableRow.css({ backgroundColor: 'pink' })
   }

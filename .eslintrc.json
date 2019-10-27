@@ -16,7 +16,6 @@
   "rules": {
     "semi": ["error", "never"],
     "curly": ["error", "all"],
-    "indent": ["error", 2],
     "quotes": ["error", "single"],
     "eqeqeq": ["error", "always"],
     "no-var": "error",

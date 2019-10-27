@@ -7,7 +7,7 @@ export function setupTippy() {
     duration: 300,
     theme: 'dark',
     delay: 0,
-    animation: 'fade'
+    animation: 'fade',
   })
 }
 
