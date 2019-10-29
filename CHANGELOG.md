@@ -1,6 +1,14 @@
 # Changelog
 
+## [v0.3.0] - 2019-10-29
+
+### Added
+
+- Estimated rest time: showing an estimated rest time on modify page while leaving
+
 ## [v0.2.1] - 2019-08-28
+
+### Misc
 
 - Security improvement
 
@@ -15,7 +23,6 @@
 ### Added
 
 - After pressing the '+' button, the man-hour input will be filled by default
-
 
 ## [v0.1.0] - 2019-06-25
 
