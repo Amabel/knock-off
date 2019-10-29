@@ -8,6 +8,8 @@
 
 ## [v0.2.1] - 2019-08-28
 
+### Misc
+
 - Security improvement
 
 ## [v0.2.0] - 2019-07-07
@@ -21,7 +23,6 @@
 ### Added
 
 - After pressing the '+' button, the man-hour input will be filled by default
-
 
 ## [v0.1.0] - 2019-06-25
 
