@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.3.0] - 2019-10-29
+
+### Added
+
+- Estimated rest time: showing an estimated rest time on modify page while leaving
+
 ## [v0.2.1] - 2019-08-28
 
 - Security improvement
