@@ -7,13 +7,12 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   ga('send', request)
 })
 
-chrome.management.getSelf((result) => {
-  const trackID = result.installType === 'development'
-    ? UA_TRACKING_ID_TEST
-    : UA_TRACKING_ID_PROD
+chrome.management.getSelf(result => {
+  const trackID = result.installType === 'development' ? UA_TRACKING_ID_TEST : UA_TRACKING_ID_PROD
   setupGA(trackID)
 })
 
+// prettier-ignore
 function setupGA(trackID) {
   (function(i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r
@@ -30,7 +29,7 @@ function setupGA(trackID) {
     'https://www.google-analytics.com/analytics.js', 'ga')
 
   ga('create', trackID, 'auto')
-  ga('set', 'checkProtocolTask', function() { })
+  ga('set', 'checkProtocolTask', function() {})
   ga('set', 'appName', 'Photo Screensaver')
   ga('send', 'pageview', '/options.html')
 }
