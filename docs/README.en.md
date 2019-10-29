@@ -21,9 +21,17 @@ Web extension for improving user experience on [JOBCAN](https://ssl.jobcan.jp/em
 
 ## Features
 
-* Highlight unfilled rows in man-hour-manage page
+### Man hour page
 
-* Autofill time (hours) in edit table of man-hour-manage page
+* Highlights unfilled rows
+
+* Autofills time (hours) for timetable
+
+* Option to return to previous month after filling timetable
+
+### Modify page
+
+* Displays the estimated rest time while leaving
 
 ## Download
 
