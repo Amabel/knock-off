@@ -53,10 +53,12 @@ function getLastAction() {
     .find('td')
     .eq(0)
     .get(0)
+
   if (lastActionDiv) {
     return lastActionDiv.innerText
+  } else {
+    return null
   }
-  return null
 }
 
 function addRestTimeToHtml(totalRestTime) {
