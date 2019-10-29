@@ -49,10 +49,16 @@ function getLastLeaveTime() {
 }
 
 function getLastAction() {
-  return $('#logs-table tr:last')
+  const lastActionDiv = $('#logs-table tr:last')
     .find('td')
     .eq(0)
-    .get(0).innerText
+    .get(0)
+
+  if (lastActionDiv) {
+    return lastActionDiv.innerText
+  } else {
+    return null
+  }
 }
 
 function addRestTimeToHtml(totalRestTime) {
